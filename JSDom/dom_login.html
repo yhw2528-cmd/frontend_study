@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    function join() {
+        // 1. 텍스트 / 비밀번호 입력값 읽기
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        // 2. select 리스트에서 선택된 직업 읽기
+        let selected = document.getElementById("job").selectedIndex;
+        let job = document.getElementById("job").options[selected].value;
+
+        // 3. 라디오 버튼에서 선택된 성별 읽기
+        let sex = "";
+        let sexList = document.getElementsByName("sex");
+        for (let i = 0; i < sexList.length; i++) {
+            if (sexList[i].checked) {
+                sex = sexList[i].value;
+                break;
+            }
+        }
+
+        // 4. 체크박스에서 선택된 취미 모두 읽기
+        let hobby = [];
+        let hobbyList = document.getElementsByName("hobby");
+        for (let i = 0; i < hobbyList.length; i++) {
+            if (hobbyList[i].checked) {
+                hobby.push(hobbyList[i].value);
+            }
+        }
+
+        // 5. 모든 값이 입력되었는지 확인
+        if (name == "" || email == "" || password == "" || sex == "" || hobby.length == 0) {
+            alert("모든 값을 입력하세요.");
+            return;
+        }
+
+        // 6. confirm 창에 입력값 보여주기
+        let msg = "이름: " + name + "\n"
+                + "이메일: " + email + "\n"
+                + "비밀번호: " + password + "\n"
+                + "직업: " + job + "\n"
+                + "성별: " + sex + "\n"
+                + "취미: " + hobby.join(", ") + "\n\n"
+                + "입력한 값이 맞습니까?";
+
+        if (confirm(msg)) {
+            // 확인: form을 숨기고 입력한 값을 화면에 출력
+            document.getElementById("joinForm").style.display = "none";
+            document.getElementById("result").innerHTML =
+                "<h3>회원가입 완료</h3>"
+                + "이름: " + name + "<br>"
+                + "이메일: " + email + "<br>"
+                + "비밀번호: " + password + "<br>"
+                + "직업: " + job + "<br>"
+                + "성별: " + sex + "<br>"
+                + "취미: " + hobby.join(", ") + "<br>";
+        }
+        // 취소: 아무것도 하지 않으면 form이 그대로 보인다
+    }
+</script>
+</head>
+<body>
+    <form id="joinForm" name="joinform">
+        <h3>회원가입</h3>
+        이름: <input id="name" type="text"><br>
+        이메일: <input id="email" type="text"><br>
+        비밀번호: <input id="password" type="password"><br>
+
+        직업:
+        <select id="job">
+            <option value="학생">학생</option>
+            <option value="직장인" SELECTED>직장인</option>
+            <option value="전문직">전문직</option>
+            <option value="무직">무직</option>
+            <option value="사업자">사업자</option>
+        </select><br>
+
+        성별:
+        <input type="radio" name="sex" value="남자">남자
+        <input type="radio" name="sex" value="여자">여자<br>
+
+        취미:
+        <input type="checkbox" name="hobby" value="축구">축구
+        <input type="checkbox" name="hobby" value="탁구">탁구
+        <input type="checkbox" name="hobby" value="농구">농구
+        <input type="checkbox" name="hobby" value="배구">배구
+        <input type="checkbox" name="hobby" value="야구">야구<br><br>
+
+        <input type="button" value="전송" onclick="join()">
+    </form>
+
+    <div id="result"></div>
+</body>
+</html>

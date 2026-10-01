@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            function calc(){
+                let result;
+                let side = Number(document.getElementById('side').value);
+                let type = document.getElementById('calc').value;
+                if (type == "면적")
+                    result = Math.pow(side, 2);   // 정사각형의 면적
+                else
+                    result = Math.pow(side, 3);   // 정육면체의 부피
+                document.getElementById('result').value = result;
+            }
+        </script>
+    </head>
+<body>
+    한 변의 길이:<input type="text" name="side" id="side">
+    연산결과<input type="text" name="result" id="result">
+    <select id="calc">
+        <option value="면적">면적</option>
+        <option value="부피">부피</option>
+    </select>
+    <button onclick="calc()">계산</button>
+</body>
+</html>
