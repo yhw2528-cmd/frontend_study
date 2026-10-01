@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script type="text/javascript">
+            var today = new Date();
+            var y = today.getFullYear();
+            var m = today.getMonth() + 1;
+            var d = today.getDate();
+
+            document.write("오늘 날짜: " + y + "년 " + m + "월 " + d + "일<br/>");
+
+            var start=new Date();
+            var t1 =start.getTime();
+
+            for(i=0;i<5;i++){
+                alert(i);
+            }
+
+            var end=new Date();
+            var t2=end.getTime();
+
+            document.write("소요시간: " + (t2-t1) + "ms<br/>");
+
+            var n = parseFloat(prompt("실수값을 입력하세요"));
+
+            document.write("round(n) = " + Math.round(n) + "<br/>");
+            document.write("ceil(n) = " + Math.ceil(n) + "<br/>");
+            document.write("floor(n) = " + Math.floor(n) + "<br/>");
+        </script>
+    </body>
+</html>
