@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        function OnMouseIn(elem) {
+            elem.style.border = "2px solid skyblue";
+            }
+        function OnMouseOut(elem) 
+            {
+            elem.style.border = "";
+            }
+    </script>
+</head>
+<body>
+    <div style="background-color: yellow; width: 200px"
+        onmouseover="OnMouseIn (this)" onmouseout="OnMouseOut (this)">
+        마우스를이요소위에이동하세요.
+    </div>
+</body>

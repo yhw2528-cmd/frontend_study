@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    function cal() {
+        let answer = document.getElementById('answer').value;
+        let s = document.getElementById("problem").value;
+        let solution = eval(s);
+        if ((answer=="") || (solution=="")) {
+            alert("수식이 입력되지 않았습니다.");
+        } else {
+            if(answer==solution){
+                alert("정답입니다!")
+            }else{
+                alert("오답입니다!.")
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>Math Quiz</h1>
+    <input type="text" id="problem" placeholder="수식을 입력하세요"><br>
+    <input type="text" id="answer">
+    <button onclick="cal()">정답 알아보기</button>
+</body>
