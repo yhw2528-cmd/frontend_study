@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function checkNumeric(elem,msg){
+                let exp=/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/
+                if (elem.value.match(exp)){
+                    alert("제대로 입력했습니다.");
+                    return true;
+                }else{
+                    alert(msg);
+                    elem.focus();
+                    return false;
+                }
+            }
+        </script>
+        <form>
+            전화번호(xxx-xxxx-xxxx)의 형태로 입력:<input id="phone"/>
+            <input type="button" onclick= "checkNumeric(document.getElementById('phone'),'전화번호(xxx-xxxx-xxxx)의 형태로 입력하세요')"
+            value='확인'/>
+        </form>
+    </body>
+</html>

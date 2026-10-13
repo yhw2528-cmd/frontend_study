@@ -1,0 +1,20 @@
+<!DOCTYPE>
+<html>
+    <body>
+        <script type="text/javascript">
+            var win;
+            function open_window(){
+                var url = prompt("원하는 URL 주소를 입력하시오:");
+                if (url) {
+                    if (!URL.canParse(url)) { //URL로 가능한지 알려주는 canParse
+                        url = "https://" + url;
+                    }
+                    win = window.open(url);
+                }
+            }
+        </script>
+
+    <button onclick="open_window()">열기</button>
+    <button onclick="win.close()">닫기</button>"
+    </body>
+</html>
