@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            div.out{width: 200px; height: 60px;background-color: yellow;}
+        </style>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    </head>
+    <body>
+        <div class="out">
+            <p> 마우스를 여기로 움직이세요</p>
+            <p>0</p>
+        </div>
+        <script>
+            var i=0;
+            $("div.out").mouseover(function(){
+                $(this).find("p").first().text("mouseover");
+                $(this).find("p").last().text(++i);
+            });
+        </script>
+    </body>
+</html>
