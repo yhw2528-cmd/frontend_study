@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="http://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+  <button id="request">request-Ajax-jQuery</button>
+  <div id="target"></div>
+
+  <script>
+    $("#request").click(function () {
+      $.ajax({
+        url: "http://210.93.61.12:8080/jspbook/JsonServlet?key=list",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          if (data.length > 0) {
+            alert("SUCCESS- 성공");
+            console.log("SUCCESS- 성공");
+            let table = $("<table width=100% border=1 />");
+
+            $.each(data, function (i, item) {
+              let row = $("<tr />");
+              row.append($("<td />").text(item.id));
+              row.append($("<td />").text(item.passwd));
+              row.append($("<td />").text(item.username));
+              row.append($("<td />").text(item.snum));
+              row.append($("<td />").text(item.depart));
+              row.append($("<td />").text(item.mobile));
+              row.append($("<td />").text(item.email));
+              table.append(row);
+            });
+
+            $("#target").append(table);
+          }
+        },
+        error: function (xhr) {
+          alert("FAILURE- 실패");
+          console.log(xhr.statusText);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
