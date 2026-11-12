@@ -1,0 +1,46 @@
+.header {
+  background-color: yellow;
+  margin: 0 auto;
+  border: 0px solid black;
+  padding: 20px;
+  width: 700px;
+  height: 50px;
+  text-align: center;
+}
+
+.home {
+  background-color: yellowgreen;
+  margin: 0 auto;
+  border: 0px solid black;
+  padding: 20px;
+  width: 700px;
+  height: 400px;
+  overflow: auto;
+  text-align: center;
+}
+
+.home > table {
+  background-color: skyblue;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border: 0px solid black;
+}
+
+.home th,
+.home td {
+  padding: 3px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.footer {
+  background-color: cyan;
+  margin: 0 auto;
+  border: 0px solid black;
+  padding: 20px;
+  width: 700px;
+  height: 50px;
+  text-align: center;
+}
